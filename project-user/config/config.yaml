@@ -9,7 +9,7 @@ zap:
   MaxAge: 3
   MaxBackups: 3
 redis:
-  host: "175.178.19.5"
+  host: "127.0.0.1"
   port: "6379"
-  Password: "kezi520"
+  Password: ""
   db: 0
