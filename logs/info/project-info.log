@@ -1,4 +1,0 @@
-{"level":"INFO","time":"2024-03-27T22:22:32.224+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
-{"level":"INFO","time":"2024-03-28T00:12:58.323+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
-{"level":"INFO","time":"2024-03-28T22:17:10.631+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
-{"level":"INFO","time":"2024-03-28T22:28:02.381+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
