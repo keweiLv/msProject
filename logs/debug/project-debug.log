@@ -2,3 +2,7 @@
 {"level":"DEBUG","time":"2024-03-27T22:22:32.316+0800","caller":"user/user.go:45","msg":"将手机号和验证码存入redis成功:REGISTER_%s:%s","mobile":"15281765978","code":"712176"}
 {"level":"INFO","time":"2024-03-28T00:12:58.323+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
 {"level":"DEBUG","time":"2024-03-28T00:12:58.365+0800","caller":"user/user.go:45","msg":"将手机号和验证码存入redis成功:REGISTER_%s:%s","mobile":"15281765978","code":"974191"}
+{"level":"INFO","time":"2024-03-28T22:17:10.631+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
+{"level":"DEBUG","time":"2024-03-28T22:17:10.698+0800","caller":"user/user.go:45","msg":"将手机号和验证码存入redis成功:REGISTER_%s:%s","mobile":"18354679901","code":"619678"}
+{"level":"INFO","time":"2024-03-28T22:28:02.381+0800","caller":"user/user.go:38","msg":"短信平台调用成功,发送短信"}
+{"level":"DEBUG","time":"2024-03-28T22:28:02.519+0800","caller":"user/user.go:45","msg":"将手机号和验证码存入redis成功:REGISTER_%s:%s","mobile":"18354679901","code":"481495"}
