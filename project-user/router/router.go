@@ -2,7 +2,6 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/keweiLv/project-user/api/user"
 	"github.com/keweiLv/project-user/config"
 	loginserviceV1 "github.com/keweiLv/project-user/pkg/service/login.service.v1"
 	"google.golang.org/grpc"
@@ -26,8 +25,8 @@ func (*RegisterRouter) Route(ro Router, r *gin.Engine) {
 }
 
 func InitRouter(r *gin.Engine) {
-	rg := New()
-	rg.Route(&user.RouterUser{}, r)
+	//rg := New()
+	//rg.Route(&user.RouterUser{}, r)
 }
 
 type gRPCConfig struct {
