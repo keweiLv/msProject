@@ -11,5 +11,10 @@ func main() {
 	r := gin.Default()
 
 	router.InitRouter(r)
-	srv.Run(r, config.C.SC.Name, config.C.SC.Addr)
+	// grpc注册
+	gc := router.RegisterGrpc()
+	stop := func() {
+		gc.Stop()
+	}
+	srv.Run(r, config.C.SC.Name, config.C.SC.Addr, stop)
 }

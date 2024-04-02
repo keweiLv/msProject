@@ -1,0 +1,17 @@
+server:
+  name: "project-api"
+  addr: ":80"
+zap:
+  DebugFileName: "/Users/kezi/GolandProjects/msProject/logs/debug/project-debug.log"
+  InfoFileName: "/Users/kezi/GolandProjects/msProject/logs/info/project-info.log"
+  WarnFileName: "/Users/kezi/GolandProjects/msProject/logs/project-error.log"
+  MaxSize: 500
+  MaxAge: 3
+  MaxBackups: 3
+redis:
+  host: "175.178.19.5"
+  port: "6379"
+  password: "Pdd&4399"
+  db: 0
+grpc:
+  addr: "127.0.0.1:8881"

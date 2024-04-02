@@ -1,36 +1,32 @@
-package user
+package login_service_v1
 
 import (
 	"context"
+	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	common "github.com/keweiLv/project-common"
 	"github.com/keweiLv/project-user/pkg/dao"
-	"github.com/keweiLv/project-user/pkg/model"
 	"github.com/keweiLv/project-user/pkg/repo"
 	"go.uber.org/zap"
 	"math/rand"
-	"net/http"
 	"time"
 )
 
-type HandleUser struct {
+type LoginService struct {
+	UnimplementedLoginServiceServer
 	cache repo.Cache
 }
 
-func New() *HandleUser {
-	return &HandleUser{
+func New() *LoginService {
+	return &LoginService{
 		cache: dao.Rc,
 	}
 }
 
-func (h *HandleUser) getCaptcha(ctx *gin.Context) {
-	resp := &common.Result{}
-
-	mobile := ctx.PostForm("mobile")
+func (ls *LoginService) Captcha(ctx context.Context, req *CaptchaRequest) (*CaptchaResponse, error) {
+	mobile := req.Mobile
 	if !common.VerifyMobile(mobile) {
-		ctx.JSON(http.StatusOK, resp.Fail(model.NoLegalMobile, "手机号格式错误"))
-		return
+		return nil, errors.New("手机号格式错误")
 	}
 	// 生成验证码
 	code := generateVerificationCode()
@@ -38,14 +34,14 @@ func (h *HandleUser) getCaptcha(ctx *gin.Context) {
 		zap.L().Info("短信平台调用成功,发送短信")
 		c, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 		defer cancel()
-		err := h.cache.Put(c, "REGISTER_"+mobile, code, 15*time.Minute)
+		err := ls.cache.Put(c, "REGISTER_"+mobile, code, 15*time.Minute)
 		if err != nil {
 			zap.L().Error("验证码存入redis出错:REGISTER_%s:%s", zap.String("mobile", mobile), zap.String("code", code))
 		}
 		zap.L().Debug("将手机号和验证码存入redis成功:REGISTER_%s:%s", zap.String("mobile", mobile), zap.String("code", code))
 
 	}()
-	ctx.JSON(http.StatusOK, resp.Success(code))
+	return &CaptchaResponse{}, nil
 }
 
 func generateVerificationCode() string {
