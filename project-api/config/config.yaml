@@ -9,9 +9,9 @@ zap:
   MaxAge: 3
   MaxBackups: 3
 redis:
-  host: "175.178.19.5"
+  host: ""
   port: "6379"
-  password: "Pdd&4399"
+  password: ""
   db: 0
 grpc:
   addr: "127.0.0.1:8881"
