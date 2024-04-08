@@ -23,7 +23,7 @@ func New() *LoginService {
 	}
 }
 
-func (ls *LoginService) Captcha(ctx context.Context, req *CaptchaRequest) (*CaptchaResponse, error) {
+func (ls *LoginService) GetCaptcha(ctx context.Context, req *CaptchaRequest) (*CaptchaResponse, error) {
 	mobile := req.Mobile
 	if !common.VerifyMobile(mobile) {
 		return nil, errors.New("手机号格式错误")
@@ -41,7 +41,7 @@ func (ls *LoginService) Captcha(ctx context.Context, req *CaptchaRequest) (*Capt
 		zap.L().Debug("将手机号和验证码存入redis成功:REGISTER_%s:%s", zap.String("mobile", mobile), zap.String("code", code))
 
 	}()
-	return &CaptchaResponse{}, nil
+	return &CaptchaResponse{Code: code}, nil
 }
 
 func generateVerificationCode() string {

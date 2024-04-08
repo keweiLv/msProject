@@ -30,6 +30,10 @@ func InitRouter(r *gin.Engine) {
 	}
 }
 
+func Register(ro ...Router) {
+	routers = append(routers, ro...)
+}
+
 type gRPCConfig struct {
 	Addr         string
 	RegisterFunc func(server *grpc.Server)

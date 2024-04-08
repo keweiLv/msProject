@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	_ "github.com/keweiLv/project-api/api"
 	"github.com/keweiLv/project-api/config"
 	"github.com/keweiLv/project-api/router"
 	srv "github.com/keweiLv/project-common"

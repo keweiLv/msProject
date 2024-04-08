@@ -7,8 +7,9 @@ message CaptchaRequest {
 }
 
 message CaptchaResponse {
+  string code = 1;
 }
 
 service LoginService {
-  rpc Captcha(CaptchaRequest) returns (CaptchaResponse){}
+  rpc GetCaptcha(CaptchaRequest) returns (CaptchaResponse){}
 }
