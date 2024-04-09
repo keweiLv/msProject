@@ -1,3 +1,6 @@
 /project-user/config/config.yaml
 /logs/*
 /project-api/config/config.yaml
+/.idea/git_toolbox_prj.xml
+/.idea/msProject.iml
+/.idea/workspace.xml
