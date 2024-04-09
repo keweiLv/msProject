@@ -1,6 +1,6 @@
 server:
   name: "project-api"
-  addr: ":80"
+  addr: "127.0.0.1:80"
 zap:
   DebugFileName: "/Users/kezi/GolandProjects/msProject/logs/debug/project-debug.log"
   InfoFileName: "/Users/kezi/GolandProjects/msProject/logs/info/project-info.log"
@@ -13,5 +13,3 @@ redis:
   port: "6379"
   password: ""
   db: 0
-grpc:
-  addr: "127.0.0.1:8881"
