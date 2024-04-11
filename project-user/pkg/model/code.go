@@ -1,7 +1,9 @@
 package model
 
-import common "github.com/keweiLv/project-common"
+import (
+	"github.com/keweiLv/project-common/errs"
+)
 
-const (
-	NoLegalMobile common.BusinessCode = 2001 // 手机号不合法
+var (
+	NoLegalMobile = errs.NewError(2001, "手机号不合法") // 手机号不合法
 )

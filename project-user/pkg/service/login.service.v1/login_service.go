@@ -2,10 +2,11 @@ package login_service_v1
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	common "github.com/keweiLv/project-common"
+	"github.com/keweiLv/project-common/errs"
 	"github.com/keweiLv/project-user/pkg/dao"
+	"github.com/keweiLv/project-user/pkg/model"
 	"github.com/keweiLv/project-user/pkg/repo"
 	"go.uber.org/zap"
 	"math/rand"
@@ -26,7 +27,7 @@ func New() *LoginService {
 func (ls *LoginService) GetCaptcha(ctx context.Context, req *CaptchaRequest) (*CaptchaResponse, error) {
 	mobile := req.Mobile
 	if !common.VerifyMobile(mobile) {
-		return nil, errors.New("手机号格式错误")
+		return nil, errs.GrpcError(model.NoLegalMobile)
 	}
 	// 生成验证码
 	code := generateVerificationCode()
